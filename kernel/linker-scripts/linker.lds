@@ -20,7 +20,7 @@ SECTIONS {
   .limine_requests : {
     KEEP(*(.limine_requests_start))
     KEEP(*(.limine_requests))
-    KEEP(*(.limine_requests_start))
+    KEEP(*(.limine_requests_end))
   } :limine_requests
 
   /* Hop to next memory page */
@@ -35,7 +35,7 @@ SECTIONS {
   } :text
 
   /* Hope to next memory page for .rodata */
-  . = ALIGN(CONSTANT(MAXPAGESIZE))
+  . = ALIGN(CONSTANT(MAXPAGESIZE));
 
   /*
    * Assign READ ONLY output region to all input .rodata
@@ -45,12 +45,12 @@ SECTIONS {
     *(.rodata .rodata.*)
   } :rodata
 
-  .note.gnu.build-id {
+  .note.gnu.build-id : {
     *(.note.gnu.build-id)
   } :rodata
 
   /* Move to next memory page for data (writeable segments) */
-  . = ALIGN(CONSTANT(MAXPAGESIZE))
+  . = ALIGN(CONSTANT(MAXPAGESIZE));
 
   .data : {
     *(.data .data.*)

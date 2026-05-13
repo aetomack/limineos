@@ -1,0 +1,5 @@
+# Cloned by kernel/get-deps (see kernel/get-deps).
+kernel/freestnd-c-hdrs/
+kernel/cc-runtime/
+kernel/limine-protocol/
+kernel/.deps-obtained
